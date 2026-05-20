@@ -32,8 +32,8 @@ def root():
 def predict(claim: Claim):
     row = pd.DataFrame([claim.model_dump()])
     row["claim_type"] = enc.transform(row["claim_type"])
-    prob = float(clf.predict_proba(row)[0, 1])
-    label = "FRAUD" if prob >= 0.5 else "LEGIT"
+    prob = float(clf.predict_proba(row.values)[0, 1])
+    label = "FRAUD" if prob >= 0.2 else "LEGIT"
     return {"label": label, "fraud_probability": round(prob, 4)}
 
 
