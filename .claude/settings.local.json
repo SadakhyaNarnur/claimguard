@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(brew install *)"
+      "Bash(brew install *)",
+      "Bash(pip install *)",
+      "Bash(python *)"
     ]
   }
 }
